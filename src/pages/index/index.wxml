@@ -3,6 +3,9 @@
 <wxs src="../../wxs/powered.wxs" module="powered" />
 
 <view class="container">
+  <view>The count is {{count}}</view>
+  <view bindtap="increment">increment</view>
+  <view bindtap="incrementAsync">incrementAsync</view>
   <view bindtap="bindViewTap">
     <user avatarUrl="{{userInfo.avatarUrl}}" nickName="{{userInfo.nickName}}"></user>
   </view>

@@ -6,7 +6,6 @@ import {
 	optimize,
 } from 'webpack';
 import WXAppWebpackPlugin, { Targets } from 'wxapp-webpack-plugin';
-import StylelintPlugin from 'stylelint-webpack-plugin';
 import MinifyPlugin from 'babel-minify-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
 import pkg from './package.json';
@@ -76,14 +75,14 @@ export default (env = {}) => {
 					].filter(Boolean),
 				},
 				{
-					test: /\.(scss|wxss|acss)$/,
+					test: /\.(less|wxss|acss)$/,
 					include: /src/,
 					use: [
 						relativeFileLoader(isWechat ? 'wxss' : 'acss'),
 						{
-							loader: 'sass-loader',
+							loader: 'less-loader',
 							options: {
-								includePaths: [resolve('src', 'styles'), srcDir],
+								paths: [resolve('src', 'styles'), srcDir],
 							},
 						},
 					],
@@ -125,7 +124,6 @@ export default (env = {}) => {
 			}),
 			new optimize.ModuleConcatenationPlugin(),
 			new IgnorePlugin(/vertx/),
-			shouldLint && new StylelintPlugin(),
 			min && new MinifyPlugin(),
 			new CopyPlugin(copyPatterns, { context: srcDir }),
 		].filter(Boolean),
