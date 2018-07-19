@@ -46,9 +46,6 @@ const pageOption = {
   }
 }
 
-const nextPageOption = connect(
-  mapState,
-  mapDispatch
-)(pageOption)
+const nextPageOption = connect(mapState, mapDispatch)(pageOption)
 
 Page(nextPageOption)

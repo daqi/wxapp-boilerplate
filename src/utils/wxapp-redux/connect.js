@@ -57,7 +57,10 @@ function connect(mapStateToProps, mapDispatchToProps) {
       typeof this.unsubscribe === 'function' && this.unsubscribe()
     }
 
-    return assign({}, pageConfig, mapDispatch(app.store.dispatch), { onLoad, onUnload })
+    return assign({}, pageConfig, mapDispatch(app.store.dispatch), {
+      onLoad,
+      onUnload
+    })
   }
 }
 
