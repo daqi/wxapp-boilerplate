@@ -22,12 +22,12 @@ const pageOption = {
     userInfo: {}
   },
   // 事件处理函数
-  bindViewTap() {
+  bindViewTap () {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  async onLoad() {
+  async onLoad () {
     await delay()
 
     const log = flow(() => {
@@ -46,6 +46,9 @@ const pageOption = {
   }
 }
 
-const nextPageOption = connect(mapState, mapDispatch)(pageOption)
+const nextPageOption = connect(
+  mapState,
+  mapDispatch
+)(pageOption)
 
 Page(nextPageOption)

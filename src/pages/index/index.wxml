@@ -4,8 +4,8 @@
 
 <view class="container">
   <view>The count is {{count}}</view>
-  <view bindtap="increment">increment</view>
-  <view bindtap="incrementAsync">incrementAsync</view>
+  <button bindtap="increment">increment</button>
+  <button bindtap="incrementAsync">incrementAsync</button>
   <view bindtap="bindViewTap">
     <user avatarUrl="{{userInfo.avatarUrl}}" nickName="{{userInfo.nickName}}"></user>
   </view>
